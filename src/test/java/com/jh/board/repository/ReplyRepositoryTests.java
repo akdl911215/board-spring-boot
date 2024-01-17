@@ -1,11 +1,12 @@
 package com.jh.board.repository;
 
-import com.jh.board.dto.Board;
-import com.jh.board.dto.Reply;
+import com.jh.board.entity.Board;
+import com.jh.board.entity.Reply;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.Optional;
 import java.util.stream.IntStream;
 
 @SpringBootTest
@@ -13,6 +14,17 @@ public class ReplyRepositoryTests {
 
     @Autowired
     private ReplyRepository replyRepository;
+
+    @Test
+    public void readReply1() {
+
+        Optional<Reply> result = replyRepository.findById(1L);
+
+        Reply reply = result.get();
+
+        System.out.println(reply);
+        System.out.println(reply.getBoard());
+    }
 
     @Test
     public void insertReply() {

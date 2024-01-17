@@ -1,4 +1,4 @@
-package com.jh.board.dto;
+package com.jh.board.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
