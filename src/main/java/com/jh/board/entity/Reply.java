@@ -3,6 +3,8 @@ package com.jh.board.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Builder
 @AllArgsConstructor
@@ -19,6 +21,11 @@ public class Reply extends BaseEntity {
 
     private String replyer;
 
+    @Column(nullable = true)
+    private LocalDateTime deletedAt;
+
     @ManyToOne
     private Board board; // 연관 관계 지정
+
+    public void changeReplyDeletedAt(LocalDateTime deletedAt) { this.deletedAt = deletedAt; }
 }

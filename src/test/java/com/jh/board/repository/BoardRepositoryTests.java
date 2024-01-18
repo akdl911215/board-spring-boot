@@ -23,6 +23,11 @@ public class BoardRepositoryTests {
     private BoardRepository boardRepository;
 
     @Test
+    public void testSearch1() {
+        boardRepository.search1();
+    }
+
+    @Test
     public void testRead3() {
         Object result = boardRepository.getBoardByBoardId(100L);
 

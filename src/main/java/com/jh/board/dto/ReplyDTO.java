@@ -9,17 +9,15 @@ import java.time.LocalDateTime;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class BoardDTO {
+public class ReplyDTO {
 
     private Long id;
 
-    private String title;
+    private String text;
 
-    private String content;
+    private String replyer;
 
-    private String writerEmail; // 작성자의 이메일(id)
-
-    private String writerName; // 작성자의 이름
+    private Long boardId;
 
     private LocalDateTime createdAt;
 
@@ -27,5 +25,4 @@ public class BoardDTO {
 
     private LocalDateTime deletedAt;
 
-    private int replyCount; // 해당 게시글의 댓글 수
 }
