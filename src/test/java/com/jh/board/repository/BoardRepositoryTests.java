@@ -23,6 +23,16 @@ public class BoardRepositoryTests {
     private BoardRepository boardRepository;
 
     @Test
+    public void testSearchPage() {
+
+        Pageable pageable = PageRequest.of(0, 10, Sort.by("id").descending().and(Sort.by("title").ascending()));
+
+        Page<Object[]> result = boardRepository.searchPage("t", "1", pageable);
+
+        System.out.println("search page result : " + result);
+    }
+
+    @Test
     public void testSearch1() {
         boardRepository.search1();
     }
