@@ -55,7 +55,7 @@ public class BoardController {
     }
 
     @PatchMapping("/remove")
-    public BoardDTO remove(long id) {
+    public BoardDTO remove(Long id) {
         log.info("remove board id : " + id);
 
         BoardDTO boardDTO = boardService.removeRelatedBoard(id);
