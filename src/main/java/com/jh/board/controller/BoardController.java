@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/board/")
 @Log4j2
 @RequiredArgsConstructor
+@CrossOrigin("*")
 public class BoardController {
 
     private final BoardService boardService;
@@ -35,7 +36,7 @@ public class BoardController {
     }
 
     @PostMapping("/register")
-    public BoardDTO registerPost(BoardDTO dto) {
+    public BoardDTO registerPost(@RequestBody BoardDTO dto) {
         log.info("register dto : " + dto);
 
         BoardDTO boardDTO = boardService.register(dto);
@@ -45,7 +46,7 @@ public class BoardController {
     }
 
     @GetMapping("/read")
-    public BoardDTO read(Long id) {
+    public BoardDTO read(@RequestParam("id") Long id) {
         log.info("read board id : " + id);
 
         BoardDTO boardDTO = boardService.get(id);
@@ -55,7 +56,7 @@ public class BoardController {
     }
 
     @PatchMapping("/remove")
-    public BoardDTO remove(Long id) {
+    public BoardDTO remove(@RequestBody Long id) {
         log.info("remove board id : " + id);
 
         BoardDTO boardDTO = boardService.removeRelatedBoard(id);

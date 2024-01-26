@@ -31,6 +31,7 @@ public interface BoardRepository extends JpaRepository<Board, Long>, SearchBoard
             " FROM Board b" +
             " LEFT JOIN b.writer w " +
             " LEFT JOIN Reply r ON r.board = b" +
+            " WHERE b.deletedAt IS NULL" +
             " GROUP BY b",
             countQuery = "SELECT count(b) FROM Board b"
     )

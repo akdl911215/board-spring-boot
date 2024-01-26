@@ -41,7 +41,7 @@ public class ReplyRepositoryTests {
         IntStream.rangeClosed(1, 300).forEach(i -> {
 
             // 1부터 100까지의임의의 번호
-            long bno = (long)(Math.random() * 100) + 1;
+            long bno = (long)(Math.random() * 99) + 1;
 
             Board board = Board.builder().id(bno).build();
 
