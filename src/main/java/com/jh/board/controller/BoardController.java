@@ -45,8 +45,8 @@ public class BoardController {
         return boardDTO;
     }
 
-    @GetMapping("/read")
-    public BoardDTO read(@RequestParam("id") Long id) {
+    @GetMapping("/read/{id}")
+    public BoardDTO read(@PathVariable Long id) {
         log.info("read board id : " + id);
 
         BoardDTO boardDTO = boardService.get(id);
@@ -66,7 +66,7 @@ public class BoardController {
     }
 
     @PatchMapping("/modify")
-    public BoardDTO modify(BoardDTO dto) {
+    public BoardDTO modify(@RequestBody BoardDTO dto) {
         log.info("modify dto : " + dto);
 
         BoardDTO boardDTO = boardService.modify(dto);
